@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Update {% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+<hr>
+<div class="container-md">
+<form method="POST">
+{% csrf_token %}
+  {{f|crispy}}
+  <button type="submit" class="btn btn-success">
+  Submit <i class="fas fa-arrow-down"></i>
+</button>
+</form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+<hr>
+<div class="container mx-6" >
+  <div class="row">
+    <div class="col-md-6" >
+<form method="POST" class="mb-3">
+    {% csrf_token %}
+  <div class="form-group">
+    <label for="taskName">Task Name:</label>
+    <input type="text" class="form-control" id="taskName" name="taskName" placeholder="Enter task name">
+  </div>
+  <div class="form-group">
+    <label for="priority">Priority:</label>
+    <select class="form-control" id="priority" name="priority">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="date">Date:</label>
+    <input type="date" class="form-control" id="date" name="date">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+ <div class="col-md-6 text-center">
+<h3>Task To Be Complete</h3>
+     {% for i in task %}
+   <div class="card text-center my-4">
+  <div class="card-body">
+    <h4 class="card-title">{{i.name}}</h4>
+      <h5 class="card-title">{{i.date}}</h5>
+    <h6 class="card-text">{{i.priority}}</h6>
+    <a href="{% url 'delete' i.id %}" class="btn btn-dark">Done</a>
+    <a href="task/{{i.id}}" class="btn btn-dark">Show</a>
+  </div>
+</div>
+{% endfor %}
+
+</div>
+  </div>
+  </div>
+{% endblock %}
