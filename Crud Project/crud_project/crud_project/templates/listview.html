@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}edit {% endblock %}
+{% block style %}
+  <style>
+        .card-icon {
+            margin-right: 5px;
+        }
+
+            .glass-container {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+
+    </style>
+
+
+{% endblock %}
+
+
+{% block content %}
+<body>
+{% for i in crud1 %}
+
+    <div class="container my-5 ">
+        <div class="row justify-content-center">
+            <div class="col-md-6 glass-container">
+                <div class="container bg-info py-2 text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            <i class="fas fa-list-ol card-icon"></i>
+                            {{i.sl_no}}</h5>
+
+
+
+                        <h5 class="card-title">
+                        <i class="fas fa-shopping-basket card-icon"></i>
+                            {{i.item_name}}
+                        </h5>
+
+
+                        <i class="fas fa-info-circle card-icon"></i>
+                         <h6 class="card-text">{{i.desc}}</h6>
+
+                        <h5 class="card-title">
+                            <i class="far fa-calendar-alt card-icon"></i>
+                            {{i.date}}
+                        </h5>
+                                  <a href="{% url 'detail' i.pk %}" class="btn btn-dark my-2">
+  <i class="fas fa-eye"></i> View
+</a>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+{% endfor %}
+{% endblock %}

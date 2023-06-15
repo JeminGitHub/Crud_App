@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Signup {% endblock %}
+{% block style %}
+
+.glass-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+.custom-rounded {
+  border-top-left-radius: 40px;
+  border-top-right-radius: 00px;
+  border-bottom-left-radius: 00px;
+  border-bottom-right-radius: 40px;
+}
+.customs-rounded {
+  border-top-left-radius: 00px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 00px;
+}
+{% endblock %}
+
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container text-center w-25 bg-info py-5 my-5 custom-rounded">
+<div class="container glass-container customs-rounded">
+<div class="container py-5">
+	<h1>Sign Up</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{ register_form|crispy }}
+		<button class="btn btn-primary" type="submit">Sign Up</button>
+	</form>
+	<p class="text-center">If you already have an account, <a href="{% url 'signin' %}">Signin</a> instead.</p>
+</div>
+</div>
+
+</div>
+
+{% endblock %}

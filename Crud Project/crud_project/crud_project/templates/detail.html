@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Home {% endblock %}
+{% block style %}
+
+{% endblock %}
+
+
+
+{% block content %}
+<!---->
+<div class="container my-3">
+  <ul class="list-group">
+    <li class="list-group-item">
+
+      <h6 class="card-subtitle mb-2 text-muted">{{crud.sl_no}}</h6>
+       <h4 class="card-title">{{crud.name}}</h4>
+      <h5 class="card-text">{{crud.desc}}</h5>
+      <h5 class="card-text">{{crud.date}}</h5>
+
+     <div class="btn-group">
+  <a href="{% url 'delete' crud.pk %}" class="btn btn-success mx-4">
+    <i class="fas fa-check"></i> Complete
+  </a>
+  <a href="{% url 'update' crud.pk %}" class="btn btn-primary">
+    <i class="fas fa-edit"></i> Update
+  </a>
+</div>
+
+    </li>
+  </ul>
+</div>
+
+
+{% endblock %}
